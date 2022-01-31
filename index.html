@@ -19,9 +19,11 @@
     <div class="container text-center text-light m-auto" id="showBooks">
         <div id="showBooksControls">
             <p class="text-light">Display books by using the buttons below.</p>
-            <button class="showAllBooksButton btn btn-light">Show All Books</button>
-            <button class="showFictionBooksButton btn btn-light mx-3">Show Fiction Books</button>
-            <button class="showNonFictionBooksButton btn btn-light">Show Non-Fiction Books</button>
+            <div class="btn-group btn-group-sm" role="group">
+                <button class="showAllBooksButton btn btn-light">Show All Books</button>
+                <button class="showFictionBooksButton btn btn-light mx-1">Show Fiction Books</button>
+                <button class="showNonFictionBooksButton btn btn-light">Show Non-Fiction Books</button>
+            </div>    
         </div>
         <div class="my-5" id="displayBooks">
         </div>
@@ -30,8 +32,8 @@
     <div class="container text-center text-light m-auto" id="showLimitedBooks">
         <div id="showLimitedBooksControls">
             <p class="text-light">Display number of book results by using the controls below.</p>
-            <input class="resultsLengthInput" type="text" placeholder="results length">
-            <button class="showBooksButton btn btn-light">Show Books</button>
+            <input class="resultsLengthInput pb-1" type="text" placeholder="results length">
+            <button class="showBooksButton btn btn-light btn-sm">Show Books</button>
         </div>
         <div class="my-5" id="displayLimitedBooks">
         </div>
@@ -40,8 +42,8 @@
     <div class="container text-center text-light m-auto" id="showBookDetails">
         <div id="showBooksDetailsControls">
             <p class="text-light">Display book details by using the controls below.</p>
-            <input class="bookLookupInput" type="text" placeholder="Book ID">
-            <button class="bookLookupButton btn btn-light">Look Up Book</button>
+            <input class="bookLookupInput pb-1" type="text" placeholder="Book ID">
+            <button class="bookLookupButton btn btn-light btn-sm">Look Up Book</button>
         </div>
         <div class="my-5" id="displayBookDetails">
         </div>
