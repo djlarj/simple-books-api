@@ -16,7 +16,7 @@ function getAllBooks() {
     .then(res => res.json() )
     .then(data => {
         displayBooks.innerHTML = '';
-        console.log(data);
+        // console.log(data);
         data.forEach( book => {
             const bookId = document.createElement('p');
             bookId.innerText = 'Book ID:' + " " + book.id;
@@ -53,7 +53,7 @@ function getFictionBooks() {
     .then(res => res.json() )
     .then(data => {
         displayBooks.innerHTML = '';
-        console.log(data);
+        // console.log(data);
         data.forEach( book => {
             const bookId = document.createElement('p');
             bookId.innerText = 'Book ID:' + " " + book.id;
@@ -90,7 +90,7 @@ function getNonFictionBooks() {
     .then(res => res.json() )
     .then(data => {
         displayBooks.innerHTML = '';
-        console.log(data);
+        // console.log(data);
         data.forEach( book => {
             const bookId = document.createElement('p');
             bookId.innerText = 'Book ID:' + " " + book.id;
@@ -130,7 +130,7 @@ function getLimitedBooks() {
     .then(res => res.json() )
     .then(data => {
         displayLimitedBooks.innerHTML = '';
-        console.log(data);
+        // console.log(data);
         data.forEach( book => {
             const bookId = document.createElement('p');
             bookId.innerText = 'Book ID:' + " " + book.id;
@@ -171,7 +171,7 @@ function getBookDetails() {
         return res.json();
     }).then( (book) => {  
         displayBookDetails.innerHTML = '';
-        console.log(book);  
+        // console.log(book);  
         const bookDetailId = document.createElement('p');
         bookDetailId.innerText = 'Book ID:' + " " + book.id;
         displayBookDetails.appendChild(bookDetailId);
