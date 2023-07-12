@@ -1,205 +1,116 @@
 // Simple Books API
 
-//Variables
+// Variables
 const displayBooks = document.querySelector('#displayBooks');
-const showAllBooksButton = document.querySelector('.showAllBooksButton')
-
-//Show All Books
-showAllBooksButton.addEventListener('click', () => {
-    getAllBooks();
-})
-
-function getAllBooks() {
-    const base_url = `https://simple-books-api.glitch.me/books`;
-
-    fetch(base_url)
-    .then(res => res.json() )
-    .then(data => {
-        displayBooks.innerHTML = '';
-        // console.log(data);
-        data.forEach( book => {
-            const bookId = document.createElement('p');
-            bookId.innerText = 'Book ID:' + " " + book.id;
-            displayBooks.appendChild(bookId);
-            const bookTitle = document.createElement('p');
-            bookTitle.innerText = 'Book Title:' + " " + book.name;
-            displayBooks.appendChild(bookTitle);
-            const bookType = document.createElement('p');
-            bookType.innerText = 'Book Type:' + " " + book.type;
-            displayBooks.appendChild(bookType);
-            const bookAvailable = document.createElement('p');
-            bookAvailable.innerText = 'Book Available:' + " " + book.available;
-            displayBooks.appendChild(bookAvailable);
-            const brElement = document.createElement('br');
-            brElement.innerHTML = "<br>";
-            displayBooks.appendChild(brElement);
-            });//.catch( err => console.log(err)); 
-    });
-}
-
-
-//Variables
-const showFictionBooksButton = document.querySelector('.showFictionBooksButton')
-
-//Show Fiction Books
-showFictionBooksButton.addEventListener('click', () => {
-    getFictionBooks();
-})
-
-function getFictionBooks() {
-    const base_url = `https://simple-books-api.glitch.me/books?type=fiction`;
-
-    fetch(base_url)
-    .then(res => res.json() )
-    .then(data => {
-        displayBooks.innerHTML = '';
-        // console.log(data);
-        data.forEach( book => {
-            const bookId = document.createElement('p');
-            bookId.innerText = 'Book ID:' + " " + book.id;
-            displayBooks.appendChild(bookId);
-            const bookTitle = document.createElement('p');
-            bookTitle.innerText = 'Book Title:' + " " + book.name;
-            displayBooks.appendChild(bookTitle);
-            const bookType = document.createElement('p');
-            bookType.innerText = 'Book Type:' + " " + book.type;
-            displayBooks.appendChild(bookType);
-            const bookAvailable = document.createElement('p');
-            bookAvailable.innerText = 'Book Available:' + " " + book.available;
-            displayBooks.appendChild(bookAvailable);
-            const brElement = document.createElement('br');
-            brElement.innerHTML = "<br>";
-            displayBooks.appendChild(brElement);
-        });//.catch( err => console.log(err)); 
-    });
-}
-
-
-//Variables
-const showNonFictionBooksButton = document.querySelector('.showNonFictionBooksButton')
-
-//Show Non-Fiction Books
-showNonFictionBooksButton.addEventListener('click', () => {
-    getNonFictionBooks();
-})
-
-function getNonFictionBooks() {
-    const base_url = `https://simple-books-api.glitch.me/books?type=non-fiction`;
-
-    fetch(base_url)
-    .then(res => res.json() )
-    .then(data => {
-        displayBooks.innerHTML = '';
-        // console.log(data);
-        data.forEach( book => {
-            const bookId = document.createElement('p');
-            bookId.innerText = 'Book ID:' + " " + book.id;
-            displayBooks.appendChild(bookId);
-            const bookTitle = document.createElement('p');
-            bookTitle.innerText = 'Book Title:' + " " + book.name;
-            displayBooks.appendChild(bookTitle);
-            const bookType = document.createElement('p');
-            bookType.innerText = 'Book Type:' + " " + book.type;
-            displayBooks.appendChild(bookType);
-            const bookAvailable = document.createElement('p');
-            bookAvailable.innerText = 'Book Available:' + " " + book.available;
-            displayBooks.appendChild(bookAvailable);
-            const brElement = document.createElement('br');
-            brElement.innerHTML = "<br>";
-            displayBooks.appendChild(brElement);
-        });//.catch( err => console.log(err)); 
-    });
-}
-
-
-//Variables
-const resultsLengthInput = document.querySelector('.resultsLengthInput');
-const showBooksButton = document.querySelector('.showBooksButton');
 const displayLimitedBooks = document.querySelector('#displayLimitedBooks');
-
-//Show Books Based on Results Limit
-showBooksButton.addEventListener('click', () => {
-    resultsLength = resultsLengthInput.value;
-    getLimitedBooks();
-})
-
-function getLimitedBooks() {
-    const base_url = `https://simple-books-api.glitch.me/books?limit=${resultsLength}`;
-    
-    fetch(base_url)
-    .then(res => res.json() )
-    .then(data => {
-        displayLimitedBooks.innerHTML = '';
-        // console.log(data);
-        data.forEach( book => {
-            const bookId = document.createElement('p');
-            bookId.innerText = 'Book ID:' + " " + book.id;
-            displayLimitedBooks.appendChild(bookId);
-            const bookTitle = document.createElement('p');
-            bookTitle.innerText = 'Book Title:' + " " + book.name;
-            displayLimitedBooks.appendChild(bookTitle);
-            const bookType = document.createElement('p');
-            bookType.innerText = 'Book Type:' + " " + book.type;
-            displayLimitedBooks.appendChild(bookType);
-            const bookAvailable = document.createElement('p');
-            bookAvailable.innerText = 'Book Available:' + " " + book.available;
-            displayLimitedBooks.appendChild(bookAvailable);
-            const brElement = document.createElement('br');
-            brElement.innerHTML = "<br>";
-            displayLimitedBooks.appendChild(brElement);
-        });//.catch( err => console.log(err));
-    });
-}
-
-
-//Variables
-const bookLookupInput = document.querySelector('.bookLookupInput');
-const bookLookupButton = document.querySelector('.bookLookupButton');
 const displayBookDetails = document.querySelector('#displayBookDetails');
+const resultsLengthInput = document.querySelector('.resultsLengthInput');
+const bookLookupInput = document.querySelector('.bookLookupInput');
 
-//Show Book Details
-bookLookupButton.addEventListener('click', () => {
-    bookLookup = bookLookupInput.value;
-    getBookDetails();
-})
-
-function getBookDetails() {
-    const base_url = `https://simple-books-api.glitch.me/books/${bookLookup}`;
-    
-    fetch(base_url)
-    .then( res => {
-        return res.json();
-    }).then( (book) => {  
-        displayBookDetails.innerHTML = '';
-        // console.log(book);  
-        const bookDetailId = document.createElement('p');
-        bookDetailId.innerText = 'Book ID:' + " " + book.id;
-        displayBookDetails.appendChild(bookDetailId);
-        const bookDetailTitle = document.createElement('p');
-        bookDetailTitle.innerText = 'Book Title:' + " " + book.name;
-        displayBookDetails.appendChild(bookDetailTitle);
-        const bookDetailAuthor = document.createElement('p');
-        bookDetailAuthor.innerText = 'Book Author:' + " " + book.author;
-        displayBookDetails.appendChild(bookDetailAuthor);
-        const bookDetailIsbn = document.createElement('p');
-        bookDetailIsbn.innerText = 'Book ISBN:' + " " + book.isbn;
-        displayBookDetails.appendChild(bookDetailIsbn);
-        const bookDetailType = document.createElement('p');
-        bookDetailType.innerText = 'Book Type:' + " " + book.type;
-        displayBookDetails.appendChild(bookDetailType);
-        const bookDetailPrice = document.createElement('p');
-        bookDetailPrice.innerText = 'Book Price:' + " " + '$' + book.price;
-        displayBookDetails.appendChild(bookDetailPrice);
-        const bookDetailCurrentStock = document.createElement('p');
-        bookDetailCurrentStock.innerText = 'Book Current Stock:' + " " + book['current-stock'];
-        displayBookDetails.appendChild(bookDetailCurrentStock);
-        const bookDetailAvailable = document.createElement('p');
-        bookDetailAvailable.innerText = 'Book Available:' + " " + book.available;
-        displayBookDetails.appendChild(bookDetailAvailable);
-    }).catch( err => console.log(err)); 
+// Functions
+function createBookElement(tag, text) {
+    const element = document.createElement(tag);
+    element.innerText = text;
+    return element;
 }
 
+async function fetchAndDisplayBooks(url, displayElement) {
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        displayElement.innerHTML = '';
 
+        data.forEach((book) => {
+            const bookId = createBookElement('p', `Book ID: ${book.id}`);
+        const bookTitle = createBookElement('p', `Book Title: ${book.name}`);
+        const bookType = createBookElement('p', `Book Type: ${book.type}`);
+        const bookAvailable = createBookElement('p', `Book Available: ${book.available}`);
+        const brElement = createBookElement('br', '');
+
+        displayElement.appendChild(bookId);
+        displayElement.appendChild(bookTitle);
+        displayElement.appendChild(bookType);
+        displayElement.appendChild(bookAvailable);
+        displayElement.appendChild(brElement);
+        });
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+// Event listener for "Enter" key press on input fields
+resultsLengthInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        showBooksButton.click();
+    }
+});
+
+bookLookupInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        bookLookupButton.click();
+    }
+});
+
+// Show All Books
+const showAllBooksButton = document.querySelector('.showAllBooksButton');
+showAllBooksButton.addEventListener('click', () => {
+    fetchAndDisplayBooks('https://simple-books-api.glitch.me/books', displayBooks);
+});
+
+// Show Fiction Books
+const showFictionBooksButton = document.querySelector('.showFictionBooksButton');
+showFictionBooksButton.addEventListener('click', () => {
+    fetchAndDisplayBooks('https://simple-books-api.glitch.me/books?type=fiction', displayBooks);
+});
+
+// Show Non-Fiction Books
+const showNonFictionBooksButton = document.querySelector('.showNonFictionBooksButton');
+showNonFictionBooksButton.addEventListener('click', () => {
+    fetchAndDisplayBooks('https://simple-books-api.glitch.me/books?type=non-fiction', displayBooks);
+});
+
+// Show Books Based on Results Limit
+const showBooksButton = document.querySelector('.showBooksButton');
+showBooksButton.addEventListener('click', async () => {
+    const resultsLength = resultsLengthInput.value;
+    const url = `https://simple-books-api.glitch.me/books?limit=${resultsLength}`;
+    fetchAndDisplayBooks(url, displayLimitedBooks);
+});
+
+// Show Book Details
+const bookLookupButton = document.querySelector('.bookLookupButton');
+bookLookupButton.addEventListener('click', async () => {
+    const bookLookup = bookLookupInput.value;
+    const url = `https://simple-books-api.glitch.me/books/${bookLookup}`;
+
+    try {
+        const response = await fetch(url);
+        const book = await response.json();
+        displayBookDetails.innerHTML = '';
+
+        const bookDetailId = createBookElement('p', `Book ID: ${book.id}`);
+        const bookDetailTitle = createBookElement('p', `Book Title: ${book.name}`);
+        const bookDetailAuthor = createBookElement('p', `Book Author: ${book.author}`);
+        const bookDetailIsbn = createBookElement('p', `Book ISBN: ${book.isbn}`);
+        const bookDetailType = createBookElement('p', `Book Type: ${book.type}`);
+        const bookDetailPrice = createBookElement('p', `Book Price: $${book.price}`);
+        const bookDetailCurrentStock = createBookElement('p', `Book Current Stock: ${book['current-stock']}`);
+        const bookDetailAvailable = createBookElement('p', `Book Available: ${book.available}`);
+
+        displayBookDetails.appendChild(bookDetailId);
+        displayBookDetails.appendChild(bookDetailTitle);
+        displayBookDetails.appendChild(bookDetailAuthor);
+        displayBookDetails.appendChild(bookDetailIsbn);
+        displayBookDetails.appendChild(bookDetailType);
+        displayBookDetails.appendChild(bookDetailPrice);
+        displayBookDetails.appendChild(bookDetailCurrentStock);
+        displayBookDetails.appendChild(bookDetailAvailable);
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+  
 //Back-to-Top button
 const btn = $('#button');
 
