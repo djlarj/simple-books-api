@@ -198,3 +198,16 @@ function getBookDetails() {
         displayBookDetails.appendChild(bookDetailAvailable);
     }).catch( err => console.log(err)); 
 }
+
+
+//Back-to-Top button
+const btn = $('#button');
+
+$(window).scroll(function() {
+    btn.toggleClass('show', $(window).scrollTop() > 100);
+});
+
+btn.on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop: 0}, 100);
+});
