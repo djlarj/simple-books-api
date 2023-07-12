@@ -22,7 +22,7 @@
 
         <div class="container text-center text-light m-auto" id="showBooks">
             <div id="showBooksControls">
-                <p class="text-light">Display books by using the buttons below.</p>
+                <p class="text-light">Display the list of books by using the buttons below.</p>
                 <div class="btn-group btn-group-sm" role="group">
                     <button class="showAllBooksButton btn btn-light">Show All Books</button>
                     <button class="showFictionBooksButton btn btn-light mx-1">Show Fiction Books</button>
@@ -35,8 +35,8 @@
 
         <div class="container text-center text-light m-auto" id="showLimitedBooks">
             <div id="showLimitedBooksControls">
-                <p class="text-light">Display number of book results by using the controls below.</p>
-                <input class="resultsLengthInput pb-1" type="text" placeholder="results length">
+                <p class="text-light">Display the number of book results by using the controls below. There are 6 books max.</p>
+                <input class="resultsLengthInput pb-1" type="text" placeholder="book results length" aria-label="Type the number of book results you want displayed here">
                 <button class="showBooksButton btn btn-light btn-sm">Show Books</button>
             </div>
             <div class="my-5" id="displayLimitedBooks">
@@ -45,8 +45,8 @@
 
         <div class="container text-center text-light m-auto" id="showBookDetails">
             <div id="showBooksDetailsControls">
-                <p class="text-light">Display book details by using the controls below.</p>
-                <input class="bookLookupInput pb-1" type="text" placeholder="Book ID">
+                <p class="text-light">Display a book's details by using the controls below. There are 6 books max.</p>
+                <input class="bookLookupInput pb-1" type="text" placeholder="book id" aria-label="Type the book id for the book you want displayed here">
                 <button class="bookLookupButton btn btn-light btn-sm">Look Up Book</button>
             </div>
             <div class="my-5" id="displayBookDetails">
@@ -56,7 +56,7 @@
         <div class="container text-center text-light m-auto" id="notice">
             <div id="noticeMessage">
                 <p class="text-light"><strong>Note:</strong> You will need to install and enable the 
-                    <a href="https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf" target="_blank">
+                    <a class="corsLink text-decoration-none" href="https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf" target="_blank">
                     Allow CORS: Access-Control-Allow-Origin</a>
                 chrome extension to allow the webpage to function.</p>
             </div>
